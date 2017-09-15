@@ -36,10 +36,12 @@ Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 // 删除用户
 Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
  */
-
+// 登录
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
+// 退出
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
 
 
 
