@@ -50,31 +50,7 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showlinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
-// 填写邮箱
-
-// 发送到用户邮箱用户点击重设密码
-
-// 重设密码
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('statuses', 'StatusesController',['only'=>['store', 'destroy']]);
 

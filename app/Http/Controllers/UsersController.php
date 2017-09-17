@@ -85,7 +85,10 @@ class UsersController extends Controller
 	// 个人中心
 	public function show(User $user)
 	{
-		return view('users.show', compact('user'));
+		$statuses = $user->statuses()
+						 ->orderBy('created_at', 'desc')
+						 ->paginate(10);
+		return view('users.show', compact('user', 'statuses'));
 	}
 
 	// 更新资料页面
@@ -118,6 +121,7 @@ class UsersController extends Controller
 
 	}
 
+	// 删除用户
 	public function destroy(User $user)
 	{
 		$this->authorize('destroy', $user);		
@@ -125,6 +129,9 @@ class UsersController extends Controller
 		session()->flash('success', '删除用户成功');
 		return back();
 	}
+
+	// 
+
 
 
 
