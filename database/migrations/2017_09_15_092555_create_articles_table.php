@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateArticlesTable extends Migration
 {
-    
     /**
      * Run the migrations.
      *
@@ -16,10 +15,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('articleName');
-            $table->string('content');
-            $table->string('comment');
-            $table->string('dianzan');
+            $table->string('name');
+            $table->boolean('sex');
+            $table->string('age');            
             $table->timestamps();
         });
     }
